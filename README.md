@@ -14,15 +14,18 @@ We propose **G**eometric **G**raph **R**epresentation Learning ($\mathrm{G}^2\ma
 
 
 ## 2. Examples
-We provide a [Jupyter Notebook](src/orthogonality_visualization_figure3_in_the_paper.ipynb) to reproduce the orthogonality visualization results (Figure 3) in Section 5.3, which the (nearly) orthogonality of
+1. We provide a [Jupyter Notebook](src/orthogonality_visualization_figure3_in_the_paper.ipynb) to reproduce the orthogonality visualization results (Figure 3) in Section 5.3, which shows the (nearly) orthogonality of
 node representations in the two classes.
-
 
 <img src="img/orth.png" style="zoom:100%;" />
 
+2. We also provide the trianing log on Cora dataset in the [Jupyter Notebook](src/orthogonality_visualization_figure3_in_the_paper.ipynb).
+
+
+
 ## 3. Run
 
-### Requirements
+1. Requirements
 
 ```txt
 torch==1.7.1
@@ -30,23 +33,24 @@ torch_geometric==1.6.3
 ```
 
 
-### Data
+2. Data
 
 We use the dataset built in torch_geometric. The dataset will be downloaded automatically.
 
 
-### Run Experiments
+3. Run Experiments
+   run the following examples on Cora, CiteSeer, PubMed dataset.
 
 ```bash
-CUDA_VISIBLE_DEVICES=5 python -u G2R.py --dataset Cora --num_epochs 20 --num_layers 1 --num_node_batch 768 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.05 --seed 21415 --split fixed
+python -u G2R.py --dataset Cora --num_epochs 20 --num_layers 1 --num_node_batch 768 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.05 --seed 21415 --split fixed
 ```
 
 ```bash
-CUDA_VISIBLE_DEVICES=5 python -u G2R.py --dataset CiteSeer --num_epochs 20 --num_layers 1 --num_node_batch 512 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.1 --seed 21415 --split fixed
+python -u G2R.py --dataset CiteSeer --num_epochs 20 --num_layers 1 --num_node_batch 512 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.1 --seed 21415 --split fixed
 ```
 
 ```bash
-CUDA_VISIBLE_DEVICES=5 python -u G2R.py --dataset PubMed --num_epochs 40 --num_layers 1 --num_node_batch 200 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.05 --seed 21415 --split fixed
+python -u G2R.py --dataset PubMed --num_epochs 40 --num_layers 1 --num_node_batch 200 --num_hidden 1024 --num_out 512 --gam1 0.5 --gam2 0.5 --eps 0.05 --seed 21415 --split fixed
 ```
 
 
